@@ -1,18 +1,12 @@
 import React from 'react';
 
 
-function Header() {
+function Todos() {
     return (
         <div className= 'header-main-wrapper'>
-            <div className = 'nav-items'>
-                <ul>
-                    <li>Login</li>
-                    <li>Sign Up</li>
-                    <li>Tasks</li>
-                </ul>
-            </div>
+            <h1>Tasks Page</h1>
         </div>
     )
 }
 
-export default Header;
+export default Todos;
