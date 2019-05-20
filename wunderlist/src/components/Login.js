@@ -21,6 +21,7 @@ class Login extends React.Component {
     render() {
         return(
             <div className = 'login-form'>
+                <form>
                 <label for ='username'> Account </label>
                 <input 
                     type = 'text'
@@ -39,6 +40,7 @@ class Login extends React.Component {
                 />
 
                 <button type = 'submit'> Login </button>
+                </form>
             </div>
         )
     }
