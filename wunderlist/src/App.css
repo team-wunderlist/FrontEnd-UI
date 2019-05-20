@@ -5,22 +5,22 @@
   }
 
 ul {
-display: flex;
-justify-content: flex-end;
-margin: 0;
-padding: 12px;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 li {
-list-style: none;
-margin-right: 6px;
+    list-style: none;
+    margin-right: 6px;
 }
 
 a {
-text-decoration: none;
-padding: 6px;
-color: darkblue;
+    text-decoration: none;
+    padding: 6px;
+    color: darkblue;
 }
 
 .login-form {
@@ -31,7 +31,7 @@ color: darkblue;
     align-items: center;
   }
 
-    form {
+form {
     display: flex;
     flex-flow: column nowrap;
     border: 1 px solid blue;
@@ -41,20 +41,25 @@ color: darkblue;
     background-color: darkblue;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  }
+}
   
-    form > label {
+form > label {
     align-self: flex-start;
     color: #ffffff;
     font-size: 12px;
     margin-bottom: -6px;
-  }
-  
-    form > input {
+}
+
+form > input {
     font-size: 16px;
     margin: 10px 0;
     border: none;
     border-radius: 16px;
     padding: 6px 10px;
     color: darkblue;
-  }
+}
+
+input:focus,
+input:active {
+    outline: none;
+}
