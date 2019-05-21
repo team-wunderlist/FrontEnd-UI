@@ -22,9 +22,9 @@ class Login extends React.Component {
     }
 
     login = e => {
-        e.prevenDefault();
+        e.preventDefault();
         this.props.login(this.state.credentials)
-        // .then(() =>this.props.history.push('/'))
+        .then(() =>this.props.history.push('/'))
         }
 
     render() {
@@ -36,7 +36,7 @@ class Login extends React.Component {
                     type = 'text'
                     name= 'username'
                     placeholder= 'Username'
-                    value = {this.state.credentials.usernam}
+                    value = {this.state.credentials.username}
                     onChange = {this.handleChanges}
                 />
                 <label for ='password'> Password </label>
