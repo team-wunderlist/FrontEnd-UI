@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Login from './components/Login'
 import Signup from './components/Signup'
-import Todos from './components/Todos'
+import Todos from './components/Todos';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Route exact path = '/' component = {Todos} />
       <Route exact path = '/login' component = {Login}/>
       <Route exact path = '/signup' component = {Signup} />
-      {/* <Route path = '/tasks' component = {Todos} /> */}
+      {/* <PrivateRoute  /> */}
   
       </div>
     </Router>

@@ -1,6 +1,9 @@
 import {
     LOGIN_START,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    FETCHING_START,
+    FETCHING_SUCCESS,
+    FETCHING_FAILURE
 } from '../actions'
 
 const intialState = {
@@ -26,6 +29,19 @@ const reducer = (state = intialState, action) => {
                 loggingIn:false,
                 token: action.payload
             };
+        case FETCHING_START:
+            return {
+                ...state,
+                fetchingTodos: true,
+                
+            };
+        case FETCHING_SUCCESS:
+            return {
+                ...state,
+                todos: action.payload,
+                fetchingTodos: false,
+                todos: action.payload
+            }
         default:
             return state;
     }
