@@ -10,7 +10,6 @@ import {
     DELETING_TODO,
     DELETING_TODO_SUCCESS,
     DELETING_TODO_FAILURE
-
 } from '../actions'
 
 const intialState = {

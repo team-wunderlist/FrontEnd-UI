@@ -45,4 +45,3 @@ export default TodoContainer;
 // }
 
 // export default connect(mapStateToProps, { deleteTodo }) (Todos));
-
