@@ -30,6 +30,7 @@ const mapStateToProps = state => {
     return {
         todos: state.todos,
         fetchingTodos: state.fetchingTodos
+        
     }
 }
 

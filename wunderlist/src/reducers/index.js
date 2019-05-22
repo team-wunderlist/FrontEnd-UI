@@ -57,8 +57,6 @@ const reducer = (state = intialState, action) => {
                 todos: [...state.todos,
                     action.payload
                 ],
-                test: console.log(action.payload)
-                
             }
         default:
             return state;
