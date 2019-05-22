@@ -93,4 +93,26 @@ form > button {
     background-color: darkblue;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+} 
+
+.deleteBtn {
+    border-radius: 50%;
+    border: 2px solid black;
+    background: red;
+    font-size: 1.25rem;
+    cursor: pointer;
 }
+
+.deleteBtn:hover {
+    animation: App-logo-spin infinite 2s linear;
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
