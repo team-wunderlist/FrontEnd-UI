@@ -24,6 +24,7 @@ class Signup extends React.Component {
     addUser = event => {   // Make sure this matches your actions
         event.preventDefault();
         this.props.addUser(this.state.credentials)
+        .then(() =>this.props.history.push('/login'))
         this.setState({
             credentials: {
                 username: '',

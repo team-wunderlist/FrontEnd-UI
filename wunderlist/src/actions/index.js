@@ -23,8 +23,8 @@ export const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
 
 export const addUser = credentials => dispatch => {
     dispatch({ type: ADD_USER_START });
-        axios
-        .post('http://backend-wunderlist.herokuapp.com/api/auth/register', credentials)
+      return  axios
+        .post('https://backend-wunderlist.herokuapp.com/api/auth/register', credentials)
         .then(res => {
             dispatch({ type: ADD_USER_SUCCESS, payload: res.data })
         })
