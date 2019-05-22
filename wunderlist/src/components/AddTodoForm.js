@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo, deleteTodo } from '../actions';
 
 
 
@@ -26,6 +26,12 @@ class  AddTodoForm extends React.Component {
         e.preventDefault();
         this.props.addTodo(this.state.newTodo)
         }
+
+        deleteTodo = (event, id) => {
+            event.preventDefault();
+            this.props.deleteTodo(id);
+          }
+        
 
     render() {
         return(
