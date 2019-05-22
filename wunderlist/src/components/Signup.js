@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function SignUp() {
+function Signup() {
     return (
         <div className= 'signUp-wrapper'>
             <h1>Sign Up Page</h1>
@@ -9,4 +9,4 @@ function SignUp() {
     )
 }
 
-export default SignUp;
+export default Signup;

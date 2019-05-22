@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Login from './components/Login'
-import SignUp from './components/SignUp'
-import Todos from './components/Todos'
+import Signup from './components/Signup'
+import Todos from './components/Todos';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
             <Link to = '/tasks' >Tasks</Link>
           </li> */}
         </ul>
-      <Route exact patch = '/login' component = {Login}/>
-      <Route exact patch = '/signup' component = {SignUp} />
-      {/* <Route path = '/tasks' component = {Todos} /> */}
+      <Route exact path = '/' component = {Todos} />
+      <Route exact path = '/login' component = {Login}/>
+      <Route exact path = '/signup' component = {Signup} />
+      {/* <PrivateRoute  /> */}
   
       </div>
     </Router>
