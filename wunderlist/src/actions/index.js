@@ -1,4 +1,5 @@
 import axios from 'axios';
+import axiosWithAuth from '../axiosWithAuth';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -27,3 +28,17 @@ export const getData = () => dispatch => {
         })
         .catch( err => console.log(err));
     }
+
+export const ADDING_TODO_START = 'ADDING_TODO_START';
+export const ADDING_TODO_SUCCESS = 'ADDING_TODO_SUCCESS';
+export const ADDING_TO_FAILURE = 'ADDING_TODO_FAILURE';
+
+export const addTodo = newTodo => dispatch => {
+    dispatch({ type: ADDING_TODO_START });
+    axiosWithAuth()
+    .post('https://backend-wunderlist.herokuapp.com/api/todos', newTodo)
+    .then( res => {
+        dispatch ({ type: ADDING_TODO_SUCCESS, payload: res.data })
+    })
+    .catch( err => console.log(err));
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getData } from '../actions';
+import AddTodoForm from './AddTodoForm';
+import TodoContainer from './TodoContainer';
 
 
 class Todos extends React.Component {
@@ -16,20 +18,19 @@ class Todos extends React.Component {
         return (
             <div className = 'tasks-wrapper'>
                 <h1>Tasks Page</h1>
-                {this.props.todos.map( todo => (
-                    <div className = 'task card' key = {todo.id}>
-                        <h4>{todo.item}</h4>
-                    </div>
-                ))}
+                <AddTodoForm />
+               <TodoContainer todos = {this.props.todos} />
             </div>
         )
         
     }
 }
 
-const mapStateToProps = ({ todos, fetchingTodos }) => ({
-    todos,
-    fetchingTodos
-})
+const mapStateToProps = state => {
+    return {
+        todos: state.todos,
+        fetchingTodos: state.fetchingTodos
+    }
+}
 
 export default withRouter( connect(mapStateToProps, { getData }) (Todos));

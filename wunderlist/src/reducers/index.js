@@ -3,7 +3,10 @@ import {
     LOGIN_SUCCESS,
     FETCHING_START,
     FETCHING_SUCCESS,
-    FETCHING_FAILURE
+    FETCHING_FAILURE,
+    ADDING_TODO_START,
+    ADDING_TODO_SUCCESS,
+    ADDING_TO_FAILURE
 } from '../actions'
 
 const intialState = {
@@ -40,6 +43,22 @@ const reducer = (state = intialState, action) => {
                 ...state,
                 todos: action.payload,
                 fetchingTodos: false,
+            };
+        case ADDING_TODO_START:
+            return{
+                ...state,
+                addingTodo: true,
+
+            };
+        case ADDING_TODO_SUCCESS:
+            return {
+                ...state,
+                addingTodo: false,
+                todos: [...state.todos,
+                    action.payload
+                ],
+                test: console.log(action.payload)
+                
             }
         default:
             return state;
