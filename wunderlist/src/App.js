@@ -22,10 +22,10 @@ function App() {
             <Link to = '/tasks' >Tasks</Link>
           </li> */}
         </ul>
-      <Route exact path = '/' component = {Todos} />
+      <Route exact path = '/' component = {Signup} />
       <Route exact path = '/login' component = {Login}/>
       <Route exact path = '/signup' component = {Signup} />
-      {/* <PrivateRoute  /> */}
+      <PrivateRoute exact path = '/tasks' component = {Todos} />
   
       </div>
     </Router>
