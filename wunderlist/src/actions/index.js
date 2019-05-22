@@ -42,3 +42,26 @@ export const addTodo = newTodo => dispatch => {
     })
     .catch( err => console.log(err));
 }
+
+const url = 'https://backend-wunderlist.herokuapp.com/api/todos'
+
+export const DELETING_TODO = 'DELETING_TODO';
+export const DELETING_TODO_SUCCESS = 'DELETING_TODO_SUCCESS';
+export const DELETING_TODO_FAILURE = 'DELETING_TODO_FAILURE';
+
+export const deleteTodo = id => dispatch => {
+    dispatch({ type: DELETING_TODO });
+    axiosWithAuth()
+    .delete(`${url}/${id}`)
+      .then(({ data }) => dispatch({
+        type: DELETING_TODO_SUCCESS,
+        payload: data
+      }))
+  
+      .catch(({ data }) => dispatch({
+        type: DELETING_TODO_FAILURE,
+        payload: data
+      }))
+  }
+  
+
