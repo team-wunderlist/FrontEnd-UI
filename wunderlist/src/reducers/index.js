@@ -10,6 +10,7 @@ import {
     DELETING_TODO,
     DELETING_TODO_SUCCESS,
     DELETING_TODO_FAILURE
+
 } from '../actions'
 
 const intialState = {
@@ -62,7 +63,6 @@ const reducer = (state = intialState, action) => {
                     action.payload
                 ],
                 test: console.log(action.payload)
-                
             };
         case DELETING_TODO:
             return {
@@ -83,7 +83,6 @@ const reducer = (state = intialState, action) => {
                 deletingTodo: false, 
                 error: action.payload 
             };   
-
         default:
             return state;
     }

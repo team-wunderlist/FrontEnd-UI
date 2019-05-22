@@ -6,11 +6,17 @@ import AddTodoForm from './AddTodoForm';
 import TodoContainer from './TodoContainer';
 import { deleteTodo } from '../actions';
 
+
 class Todos extends React.Component {
 
     componentDidMount(){
         this.props.getData();
     }
+
+
+    render() {
+        if(this.props.fetchingTodos)
+        return <h1>...Fetching tasks</h1>
 
     deleteTodo = (event, id) => {
         event.preventDefault();
@@ -20,6 +26,7 @@ class Todos extends React.Component {
     render() {
         if(this.props.fetchingTodos)
         return <h1>...Fetching tasks</h1>
+
 
         return (
             <div className = 'tasks-wrapper'>
@@ -35,6 +42,7 @@ class Todos extends React.Component {
                 </div>
             ))}
         </div>
+
             </div>
         )
         
@@ -47,5 +55,8 @@ const mapStateToProps = state => {
         fetchingTodos: state.fetchingTodos
     }
 }
+
+
+
 
 export default withRouter( connect(mapStateToProps, { getData, deleteTodo }) (Todos));

@@ -4,6 +4,7 @@ import { addTodo, deleteTodo } from '../actions';
 
 
 
+
 class  AddTodoForm extends React.Component {
     state = {
         newTodo: {
@@ -27,11 +28,13 @@ class  AddTodoForm extends React.Component {
         this.props.addTodo(this.state.newTodo)
         }
 
+
         deleteTodo = (event, id) => {
             event.preventDefault();
             this.props.deleteTodo(id);
           }
         
+
 
     render() {
         return(
@@ -65,8 +68,6 @@ class  AddTodoForm extends React.Component {
                 <button type = 'submit'> Add new Todo </button>
                 </form>
 
-                
-
             </div>
         )
     }
@@ -75,5 +76,6 @@ class  AddTodoForm extends React.Component {
 const mapStateToProps = ({ addingTodo }) => ({
     addingTodo
 })
+
 
 export default connect(mapStateToProps, { addTodo, deleteTodo }) (AddTodoForm);
