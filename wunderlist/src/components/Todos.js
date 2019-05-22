@@ -6,12 +6,12 @@ import AddTodoForm from './AddTodoForm';
 import TodoContainer from './TodoContainer';
 import { deleteTodo } from '../actions';
 
+
 class Todos extends React.Component {
 
     componentDidMount(){
         this.props.getData();
     }
-
     deleteTodo = (event, id) => {
         event.preventDefault();
         this.props.deleteTodo(id);
@@ -27,14 +27,14 @@ class Todos extends React.Component {
                 <AddTodoForm />
                {/* <TodoContainer todos = {this.props.todos} deleteTodo = {this.props.deleteTodo} /> */}
                <div>
-            {this.props.todos.map( todo => (
+                {this.props.todos.map( todo => (
                 <div>
                     <button className='deleteBtn' type="submit" onClick={(event) => this.props.deleteTodo(event, todo.id)}> X </button>
 
                     <h4 key = {todo.id}>{todo.item}</h4>
                 </div>
             ))}
-        </div>
+                </div>
             </div>
         )
         
@@ -47,5 +47,8 @@ const mapStateToProps = state => {
         fetchingTodos: state.fetchingTodos
     }
 }
+
+
+
 
 export default withRouter( connect(mapStateToProps, { getData, deleteTodo }) (Todos));

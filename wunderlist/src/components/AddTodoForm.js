@@ -73,4 +73,5 @@ const mapStateToProps = ({ addingTodo }) => ({
     addingTodo
 })
 
-export default connect(mapStateToProps, { addTodo }) (AddTodoForm);
+
+export default connect(mapStateToProps, { addTodo, deleteTodo }) (AddTodoForm);
