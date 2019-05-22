@@ -11,14 +11,18 @@ class Todos extends React.Component {
     }
 
     render() {
+        if(this.props.fetchingTodos)
+        return <h1>...Fetching tasks</h1>
         return (
-            <div>
+            <div className = 'tasks-wrapper'>
                 <h1>Tasks Page</h1>
-
+                {this.props.todos.map( todo => (
+                    <div className = 'task card' key = {todo.id}>
+                        <h4>{todo.item}</h4>
+                    </div>
+                ))}
             </div>
         )
-            
-
         
     }
 }

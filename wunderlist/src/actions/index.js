@@ -23,7 +23,7 @@ export const getData = () => dispatch => {
             headers: { Authorization: localStorage.getItem('token') }
         })
         .then( res => {
-            dispatch ({ type: FETCHING_SUCCESS, payload: res.data });
+            dispatch ({ type: FETCHING_SUCCESS, payload: res.data, });
         })
         .catch( err => console.log(err));
     }

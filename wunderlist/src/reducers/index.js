@@ -40,7 +40,6 @@ const reducer = (state = intialState, action) => {
                 ...state,
                 todos: action.payload,
                 fetchingTodos: false,
-                todos: action.payload
             }
         default:
             return state;
