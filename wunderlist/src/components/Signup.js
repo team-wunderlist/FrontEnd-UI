@@ -1,11 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const SignUpContainer = styled.div`
+
+`;
+
+const Title = styled.h1`
+
+`;
 
 function Signup() {
     return (
-        <div className= 'signUp-wrapper'>
-            <h1>Sign Up Page</h1>
-        </div>
+        <SignUpContainer>
+
+            <Title>Sign Up Page</Title>
+            
+        </SignUpContainer>
     )
 }
 

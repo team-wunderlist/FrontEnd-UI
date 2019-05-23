@@ -3,8 +3,76 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getData } from '../actions';
 import AddTodoForm from './AddTodoForm';
-import TodoContainer from './TodoContainer';
 import { deleteTodo } from '../actions';
+import styled from 'styled-components';
+import paper from '../paperbackground.jpg';
+import wood from '../woodbackground.jpg';
+
+const Taskwrap = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(${wood});
+  border-radius: 25px;
+`;
+
+const Headline = styled.h1`
+
+`;
+
+const ListItems = styled.div`
+width: 80%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-evenly;
+background-image: url(${paper});
+border-radius: 25px;
+margin-bottom: 25px;
+`;
+
+
+
+const Checkbox = styled.div`
+
+`;
+
+const Check = styled.div`
+
+`;
+
+const ItemBox = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
+
+const Task = styled.h4`
+
+`;
+
+const Description = styled.p`
+
+`;
+
+const ButtonBox = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+align-contentt: flex-end;
+`;
+
+const Star = styled.div`
+
+`;
+
+const DeleteBtn = styled.button`
+
+`;
+
+
+
+
 
 class Todos extends React.Component {
 
@@ -19,23 +87,33 @@ class Todos extends React.Component {
 
     render() {
         if(this.props.fetchingTodos)
-        return <h1>...Fetching tasks</h1>
+        return <h1 class="material-icons"> cached </h1>
 
         return (
-            <div className = 'tasks-wrapper'>
-                <h1>Tasks Page</h1>
+            <Taskwrap>
+                <Headline>Wunderlist 2.0</Headline>
                 <AddTodoForm />
-               {/* <TodoContainer todos = {this.props.todos} deleteTodo = {this.props.deleteTodo} /> */}
-               <div>
             {this.props.todos.map( todo => (
-                <div>
-                    <button className='deleteBtn' type="submit" onClick={(event) => this.props.deleteTodo(event, todo.id)}> X </button>
+                <ListItems>
 
-                    <h4 key = {todo.id}>{todo.item}</h4>
-                </div>
+                    <Checkbox>
+                        <Check> <h1 class="material-icons"> done </h1> </Check>
+                    </Checkbox>
+                    
+                    <ItemBox>
+                        <Task key = {todo.id}>{todo.item}</Task>
+                        <Description>{todo.description}</Description>
+                    </ItemBox>
+
+                    <ButtonBox>
+                        <Star> <h1 class="material-icons star"> star </h1> </Star>
+                        <DeleteBtn  className='deleteBtn' type="submit" onClick={(event) => this.props.deleteTodo(event, todo.id)}> X </DeleteBtn>
+                    </ButtonBox>
+
+                 </ListItems>
             ))}
-        </div>
-            </div>
+
+            </Taskwrap>        
         )
         
     }
@@ -44,7 +122,8 @@ class Todos extends React.Component {
 const mapStateToProps = state => {
     return {
         todos: state.todos,
-        fetchingTodos: state.fetchingTodos
+        fetchingTodos: state.fetchingTodos,
+        error: state.error 
     }
 }
 
