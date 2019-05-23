@@ -1,8 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo } from '../actions';
+import styled from 'styled-components';
+import inkpen from '../inkpen.jpg';
 
+const FormToDo = styled.div`
+background-image: url(${inkpen});
+background-size: cover;
+padding: 40px;
+width: 19%;
+margin-bottom: 25px;
+border-radius: 25px;
+`;
 
+const Form = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;
+
+const Task = styled.input`
+border-radius: 20px;
+margin-bottom: 10px;
+text-align: center;
+`;
+
+const Details = styled.input`
+border-radius: 20px;
+margin-bottom: 10px;
+text-align: center;
+`;
+
+const Date = styled.input`
+border-radius: 20px;
+margin-bottom: 10px;
+`;
+
+const AddBtn = styled.button`
+  border-radius: 20px;
+  padding: 5px;
+`;
 
 class  AddTodoForm extends React.Component {
     state = {
@@ -35,36 +72,40 @@ class  AddTodoForm extends React.Component {
 
     render() {
         return(
-            <div className = 'addTodo-form'>
-                <form onSubmit= {this.addTodo}>
-                <label for ='item'> Task </label>
-                <input 
-                    type = 'text'
-                    name= 'item'
-                    placeholder= 'Task'
-                    value = {this.state.newTodo.item}
-                    onChange = {this.handleChanges}
-                />
-                <label for ='due_date'> Due By </label>
-                <input 
-                    type = 'date'
-                    name= 'due_date'
-                    placeholder= 'YYYY/MM/DD'
-                    value = {this.state.newTodo.due_date}
-                    onChange = {this.handleChanges}
-                />
-                <label for ='description'> Description</label>
-                <input 
-                    type = 'text area'
-                    name= 'description'
-                    placeholder= 'Description'
-                    value = {this.state.newTodo.description}
-                    onChange = {this.handleChanges}
-                />
+            <FormToDo>
+                
+                <Form onSubmit= {this.addTodo}>
 
-                <button type = 'submit'> Add new Todo </button>
-                </form>
-            </div>
+                    <Task
+                        type = 'text'
+                        name= 'item'
+                        placeholder= 'Task?'
+                        value = {this.state.newTodo.item}
+                        onChange = {this.handleChanges}
+                    />
+
+                    <Details 
+                        type = 'text area'
+                        name= 'description'
+                        placeholder= 'Details?'
+                        value = {this.state.newTodo.description}
+                        onChange = {this.handleChanges}
+                    />
+
+                    <Date 
+                        type = 'date'
+                        name= 'due_date'
+                        placeholder= ''
+                        value = {this.state.newTodo.due_date}
+                        onChange = {this.handleChanges}
+                    />
+
+                    <AddBtn type = 'submit'> Add </AddBtn>
+                </Form>
+
+                
+
+            </FormToDo>
         )
     }
 }

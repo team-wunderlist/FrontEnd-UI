@@ -1,33 +1,71 @@
 import React from 'react';
-// import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Header from './components/Header';
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Todos from './components/Todos';
 import PrivateRoute from './PrivateRoute';
+import styled from 'styled-components';
+import img from './background.jpg';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  background-image: url(${img});
+  color: white;
+
+`;
+
+const Navigation = styled.nav`
+  
+`;
+
+const LoginTag = styled.a`
+  
+`;
+
+const SignUpTag = styled.a`
+  
+`;
+
+const TasksTag = styled.a`
+  
+`;
+
+
+
+
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <ul>
-          <li>
+
+      <Container>
+
+        <Navigation>
+
+          <LoginTag>
             <Link to = '/login'>Login</Link>
-          </li>
-          <li>
+          </LoginTag>
+
+          <SignUpTag>
             <Link to = '/signup'>Sign Up</Link>
-          </li>
-          {/* <li>
+          </SignUpTag>
+
+          <TasksTag>
             <Link to = '/tasks' >Tasks</Link>
-          </li> */}
-        </ul>
-      <Route exact path = '/' component = {Signup} />
-      <Route exact path = '/login' component = {Login}/>
-      <Route exact path = '/signup' component = {Signup} />
-      <PrivateRoute exact path = '/tasks' component = {Todos} />
-  
-      </div>
+          </TasksTag>
+
+        </Navigation>
+
+            <Route exact path = '/' component = {Signup} />
+            <Route exact path = '/login' component = {Login}/>
+            <Route exact path = '/signup' component = {Signup} />
+            <PrivateRoute exact path = '/tasks' component = {Todos} />
+
+      </Container>
+
     </Router>
   );
 }

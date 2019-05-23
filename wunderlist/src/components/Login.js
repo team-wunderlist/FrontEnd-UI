@@ -1,8 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions';
+import styled from 'styled-components';
 
+const LoginContainer = styled.div`
+  
+`;
 
+const LoginForm = styled.form`
+  
+`;
+
+const UserName = styled.input`
+  
+`;
+
+const Password = styled.input`
+  
+`;
+
+const LoginBtn = styled.button`
+  
+`;
 
 class Login extends React.Component {
     state = {
@@ -29,28 +48,31 @@ class Login extends React.Component {
 
     render() {
         return(
-            <div className = 'login-form'>
-                <form onSubmit= {this.login}>
-                <label for ='username'> Account </label>
-                <input 
-                    type = 'text'
-                    name= 'username'
-                    placeholder= 'Username'
-                    value = {this.state.credentials.username}
-                    onChange = {this.handleChanges}
-                />
-                <label for ='password'> Password </label>
-                <input 
-                    type = 'password'
-                    name= 'password'
-                    placeholder= 'Password'
-                    value = {this.state.credentials.password}
-                    onChange = {this.handleChanges}
-                />
+            <LoginContainer>
 
-                <button type = 'submit'> Login </button>
-                </form>
-            </div>
+                <LoginForm onSubmit= {this.login}>
+                
+                    <UserName 
+                        type = 'text'
+                        name= 'username'
+                        placeholder= 'Username'
+                        value = {this.state.credentials.username}
+                        onChange = {this.handleChanges}
+                    />
+                    
+                    <Password 
+                        type = 'password'
+                        name= 'password'
+                        placeholder= 'Password'
+                        value = {this.state.credentials.password}
+                        onChange = {this.handleChanges}
+                    />
+
+                    <LoginBtn type = 'submit'> Login </LoginBtn>
+
+                </LoginForm>
+                
+            </LoginContainer>
         )
     }
 }
