@@ -93,16 +93,8 @@ class Todos extends React.Component {
             <Taskwrap>
                 <Headline>Wunderlist 2.0</Headline>
                 <AddTodoForm />
-<<<<<<< HEAD
             {this.props.todos.map( todo => (
                 <ListItems>
-=======
-               {/* <TodoContainer todos = {this.props.todos} deleteTodo = {this.props.deleteTodo} /> */}
-               <div>
-                {this.props.todos.map( todo => (
-                <div>
-                    <button className='deleteBtn' type="submit" onClick={(event) => this.props.deleteTodo(event, todo.id)}> X </button>
->>>>>>> master
 
                     <Checkbox>
                         <Check> <h1 class="material-icons"> done </h1> </Check>
@@ -120,13 +112,8 @@ class Todos extends React.Component {
 
                  </ListItems>
             ))}
-<<<<<<< HEAD
 
             </Taskwrap>        
-=======
-                </div>
-            </div>
->>>>>>> master
         )
         
     }

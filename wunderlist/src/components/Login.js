@@ -43,7 +43,7 @@ class Login extends React.Component {
     login = e => {
         e.preventDefault();
         this.props.login(this.state.credentials)
-        .then(() =>this.props.history.push('/'))
+        .then(() =>this.props.history.push('/tasks'))
         }
 
     render() {

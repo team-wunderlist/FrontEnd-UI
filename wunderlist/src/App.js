@@ -54,15 +54,15 @@ function App() {
           </SignUpTag>
 
           <TasksTag>
-            <Link to = '/' >Tasks</Link>
+            <Link to = '/tasks' >Tasks</Link>
           </TasksTag>
 
         </Navigation>
 
-            <Route exact path = '/' component = {Todos} />
+            <Route exact path = '/' component = {Signup} />
             <Route exact path = '/login' component = {Login}/>
             <Route exact path = '/signup' component = {Signup} />
-            {/* <PrivateRoute  /> */}
+            <PrivateRoute exact path = '/tasks' component = {Todos} />
 
       </Container>
 
