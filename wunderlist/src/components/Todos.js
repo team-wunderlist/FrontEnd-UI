@@ -34,7 +34,7 @@ background-color: ${colors.primaryColor};
 color: ${colors.lightColor};
 border-radius: 2rem;
 min-height: 4rem;
-height: 4rem;
+height: auto;
 display:flex;
 align-items: center;
 justify-content: flex-start;
@@ -55,12 +55,20 @@ margin-left: 1rem;
 margin-right: 1.5rem;
 `;
 
+// Toggler display when Checkbox clicked
 const Check = styled.div`
- color: ${colors.darkColor};
+    display:none;
+    color: ${colors.darkColor};
+    h1 {
+        margin: 0 0;
+    }
 `;
 
+
+// Should set Description height to auto when clicked
 const ItemBox = styled.div`
-height: 100%;
+min-height: 100%;
+height: auto;
 width: 85%;
 display:flex;
 flex-direction: column;
@@ -94,6 +102,8 @@ flex-direction: row;
 align-items: center;
 align-contentt: flex-end;
 `;
+
+// Should display when adding new task
 const Blur = styled.div`
     display:none;
     position: fixed;
@@ -104,6 +114,8 @@ const Blur = styled.div`
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
 `
+
+// Should set display on FormToDo to block and also Blue to block
 const NewTaskButton = styled.span`
 display:block;
 text-align:center;
@@ -119,6 +131,7 @@ const Star = styled.div`
 
 `;
 
+// Needs to be implemented
 const DeleteBtn = styled.button`
 
 `;
@@ -150,6 +163,7 @@ class Todos extends React.Component {
             {this.props.todos.map( todo => (
                 <ListItems>
                     <Checkbox>
+                        <Check> <h1 class="material-icons"> done </h1> </Check>
                     </Checkbox>
                     
                     <ItemBox>
