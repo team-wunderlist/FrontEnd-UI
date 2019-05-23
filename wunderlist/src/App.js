@@ -6,31 +6,57 @@ import Todos from './components/Todos';
 import PrivateRoute from './PrivateRoute';
 import styled from 'styled-components';
 import img from './background.jpg';
-
+import colors from './styles';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 100%;
-  background-image: url(${img});
   color: white;
-
+  align-items: center;
+  justify-content: space-between;
+  background: ${colors.backgroundGradient};
+  height: 8rem;
 `;
 
 const Navigation = styled.nav`
-  
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;
 
+const Headline = styled.h1`
+  font-size: 1.5rem;
+  font-family: Roboto Condensed;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+`
+
 const LoginTag = styled.a`
-  
+a {
+  text-decoration:none;
+  color: ${colors.lightColor};
+  font-family: Roboto;
+}
 `;
 
 const SignUpTag = styled.a`
-  
+a {
+  text-decoration:none;
+  color: ${colors.lightColor};
+  font-family: Roboto;
+}
 `;
 
 const TasksTag = styled.a`
-  
+  a {
+    text-decoration:none;
+    color: ${colors.lightColor};
+    font-family: Roboto;
+  }
 `;
 
 
@@ -59,13 +85,14 @@ function App() {
 
         </Navigation>
 
+        <Headline>Wunderlist.</Headline>
             <Route exact path = '/' component = {Signup} />
             <Route exact path = '/login' component = {Login}/>
             <Route exact path = '/signup' component = {Signup} />
-            <PrivateRoute exact path = '/tasks' component = {Todos} />
 
+          
       </Container>
-
+      <PrivateRoute exact path = '/tasks' component = {Todos} />
     </Router>
   );
 }
