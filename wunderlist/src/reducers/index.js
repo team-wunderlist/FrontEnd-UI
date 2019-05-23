@@ -62,7 +62,6 @@ const reducer = (state = intialState, action) => {
                     action.payload
                 ],
                 test: console.log(action.payload)
-                
             };
         case DELETING_TODO:
             return {
@@ -83,7 +82,6 @@ const reducer = (state = intialState, action) => {
                 deletingTodo: false, 
                 error: action.payload 
             };   
-
         default:
             return state;
     }

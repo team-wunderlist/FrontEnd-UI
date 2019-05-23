@@ -72,6 +72,7 @@ class  AddTodoForm extends React.Component {
 
     render() {
         return(
+<<<<<<< HEAD
             <FormToDo>
                 
                 <Form onSubmit= {this.addTodo}>
@@ -106,6 +107,38 @@ class  AddTodoForm extends React.Component {
                 
 
             </FormToDo>
+=======
+            <div className = 'addTodo-form'>
+                <form onSubmit= {this.addTodo}>
+                <label for ='item'> Task </label>
+                <input 
+                    type = 'text'
+                    name= 'item'
+                    placeholder= 'Task'
+                    value = {this.state.newTodo.item}
+                    onChange = {this.handleChanges}
+                />
+                <label for ='due_date'> Due By </label>
+                <input 
+                    type = 'date'
+                    name= 'due_date'
+                    placeholder= 'YYYY/MM/DD'
+                    value = {this.state.newTodo.due_date}
+                    onChange = {this.handleChanges}
+                />
+                <label for ='description'> Description</label>
+                <input 
+                    type = 'text area'
+                    name= 'description'
+                    placeholder= 'Description'
+                    value = {this.state.newTodo.description}
+                    onChange = {this.handleChanges}
+                />
+
+                <button type = 'submit'> Add new Todo </button>
+                </form>
+            </div>
+>>>>>>> master
         )
     }
 }
@@ -113,5 +146,6 @@ class  AddTodoForm extends React.Component {
 const mapStateToProps = ({ addingTodo }) => ({
     addingTodo
 })
+
 
 export default connect(mapStateToProps, { addTodo, deleteTodo }) (AddTodoForm);
