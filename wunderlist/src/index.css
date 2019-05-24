@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("background.jpg")
 }
 
 code {
@@ -21,3 +22,11 @@ body,
   height: 100%;
   width: 100%;
 } 
+
+*,html{
+  box-sizing: border-box;
+}
+*,html{
+  box-sizing: inherit;
+  font-family: inherit;
+}

@@ -12,7 +12,8 @@ import {
     DELETING_TODO_FAILURE,
     ADD_USER_START,
     ADD_USER_SUCCESS,
-    ADD_USER_FAILURE
+    ADD_USER_FAILURE,
+ 
 } from '../actions'
 
 const intialState = {
@@ -69,18 +70,19 @@ const reducer = (state = intialState, action) => {
                 ],
                 test: console.log(action.payload)
             };
-        case DELETING_TODO:
+
+            case DELETING_TODO:
             return {
                 ...state,
                 deletingTodo: true 
             };
 
-        case DELETING_TODO_SUCCESS:
-            return { 
-                ...state, 
-                deletingTodo: false, 
-                todos: action.payload 
-            };
+            case DELETING_TODO_SUCCESS:
+                return { 
+                    ...state, 
+                    deletingTodo: false, 
+                    test: console.log(action.payload)
+                };
 
         case DELETING_TODO_FAILURE:
             return { 
@@ -88,6 +90,7 @@ const reducer = (state = intialState, action) => {
                 deletingTodo: false, 
                 error: action.payload 
             };   
+        
         
         case ADD_USER_START:
             return {
@@ -112,6 +115,8 @@ const reducer = (state = intialState, action) => {
                 userAdded: false,
                 addUserFailure: action.payload
             }   
+
+
             default:
             return state;
     }

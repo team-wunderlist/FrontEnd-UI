@@ -72,15 +72,19 @@ export const DELETING_TODO_FAILURE = 'DELETING_TODO_FAILURE';
 export const deleteTodo = id => dispatch => {
     dispatch({ type: DELETING_TODO });
     axiosWithAuth()
-    .delete(`${url}/${id}`)
-      .then(({ data }) => dispatch({
-        type: DELETING_TODO_SUCCESS,
-        payload: data
-      }))
-  
-      .catch(({ data }) => dispatch({
-        type: DELETING_TODO_FAILURE,
-        payload: data
-      }))
+    .delete(`https://backend-wunderlist.herokuapp.com/api/todos/${id}`)
+      .then(res =>  {
+          console.log(res)
+          dispatch({ type: DELETING_TODO_SUCCESS, payload: res.data })
+          axios.get('https://backend-wunderlist.herokuapp.com/api/todos', {
+            headers: { Authorization: localStorage.getItem('token') }
+        })
+        .then( res => {
+            dispatch ({ type: FETCHING_SUCCESS, payload: res.data, });
+        })
+        .catch( err => console.log(err));
+        })
+      
+      .catch(err => console.log(err))
   }
-  
+
