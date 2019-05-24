@@ -69,7 +69,7 @@ const Check = styled.div`
 const ItemBox = styled.div`
 min-height: 100%;
 height: auto;
-width: 85%;
+width: 75%;
 display:flex;
 flex-direction: column;
 align-items: flex-start;
@@ -131,9 +131,15 @@ const Star = styled.div`
 
 `;
 
-// Needs to be implemented
+// Action needs to be implemented
 const DeleteBtn = styled.button`
-
+    background: transparent;
+    border:none;
+    color: ${colors.lightColor};
+    display:block;
+    text-align:center;
+    font-size: 3rem;
+    font-family: Roboto;
 `;
 
 
@@ -171,7 +177,7 @@ class Todos extends React.Component {
                         <Description>{todo.description}</Description>
                         <DueDate>{(new Date(todo.due_date)).toLocaleDateString()}</DueDate>
                     </ItemBox>
-
+                    <DeleteBtn>-</DeleteBtn>
                  </ListItems>
             ))}
             <NewTaskButton>+</NewTaskButton>
