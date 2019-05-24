@@ -3,16 +3,29 @@ import { connect } from 'react-redux';
 import { addTodo, deleteTodo } from '../actions';
 import styled from 'styled-components';
 import inkpen from '../inkpen.jpg';
+import colors from "../styles"
 
 const FormToDo = styled.div`
-background-image: url(${inkpen});
-background-size: cover;
-padding: 40px;
-width: 19%;
-margin-bottom: 25px;
-border-radius: 25px;
+display:none;
+background: ${colors.backgroundGradient};
+width: 80vw;
+height: 80vh;
+max-height:20rem;
+border-radius: 1.5rem;
+position: absolute;
+top: 50%;
+left: 50%;
+z-index: 100;
+transform: translate(-50%, -50%);
+color: ${colors.lightColor};
+font-family: Roboto Condensed;
 `;
-
+const Headline = styled.h1`
+width: 100%;
+text-align: center;
+font-family: Roboto Condensed;
+font-weight: 300;
+`
 const Form = styled.form`
 display: flex;
 flex-direction: column;
@@ -20,25 +33,41 @@ align-items: center;
 `;
 
 const Task = styled.input`
-border-radius: 20px;
-margin-bottom: 10px;
+font-size: 1.2rem;
+height: 2.2rem;
+width: 90%;
+border:none;
+margin-bottom: 1rem;
 text-align: center;
 `;
 
 const Details = styled.input`
-border-radius: 20px;
-margin-bottom: 10px;
+font-size: 1.2rem;
+height: 2.2rem;
+width: 90%;
+border:none;
+margin-bottom: 1rem;
 text-align: center;
 `;
 
 const Date = styled.input`
-border-radius: 20px;
+font-size: 1.2rem;
+height: 2.2rem;
+width: 90%;
+border:none;
+border-radius: 1.1rem;
 margin-bottom: 10px;
+text-align: center;
 `;
 
 const AddBtn = styled.button`
-  border-radius: 20px;
-  padding: 5px;
+    position: absolute;
+    bottom:5%;
+    background: transparent;
+    border:none;
+    font-size: 2rem;
+    font-weight: 200;
+    color: ${colors.lightColor};
 `;
 
 class  AddTodoForm extends React.Component {
@@ -73,13 +102,13 @@ class  AddTodoForm extends React.Component {
     render() {
         return(
             <FormToDo>
-                
+                <Headline>Add Task</Headline>
                 <Form onSubmit= {this.addTodo}>
 
                     <Task
                         type = 'text'
                         name= 'item'
-                        placeholder= 'Task?'
+                        placeholder= 'Task'
                         value = {this.state.newTodo.item}
                         onChange = {this.handleChanges}
                     />
@@ -87,7 +116,7 @@ class  AddTodoForm extends React.Component {
                     <Details 
                         type = 'text area'
                         name= 'description'
-                        placeholder= 'Details?'
+                        placeholder= 'Details'
                         value = {this.state.newTodo.description}
                         onChange = {this.handleChanges}
                     />
@@ -95,7 +124,7 @@ class  AddTodoForm extends React.Component {
                     <Date 
                         type = 'date'
                         name= 'due_date'
-                        placeholder= ''
+                        placeholder= 'YYYY-MM-DD'
                         value = {this.state.newTodo.due_date}
                         onChange = {this.handleChanges}
                     />
